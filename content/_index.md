@@ -3,7 +3,7 @@ title: "H. Haruna Portfolio"
 description: "Portfolio of Haruna Hatakeyama — work in fashion retail, e-commerce, and digital marketing."
 ---
 
-# Digital Marketing Specialist | Fashion Retail | Vancouver
+{{< lead >}}Digital Marketing Specialist | Fashion Retail | Vancouver{{< /lead >}}
 
 ## Welcome to my portfolio
 
