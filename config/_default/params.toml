@@ -1,8 +1,6 @@
 # -- Theme Options --
-# These options control how the theme functions and allow you to
-# customise the display of your website.
-#
-# Refer to the theme docs for more details about each of these parameters.
+# Only values that deliberately DIFFER from the Blowfish module defaults are
+# set here; anything omitted falls back to the theme's config/_default/params.toml.
 # https://blowfish.page/docs/configuration/#theme-parameters
 
 # Marketing keywords rendered into the <meta name="keywords"> tag by the theme.
@@ -26,202 +24,54 @@ keywords = [
   "ポートフォリオ",
 ]
 
-colorScheme = "blowfish"
-defaultAppearance = "light" # valid options: light or dark
-autoSwitchAppearance = true
+enableStructuredBreadcrumbs = true # BreadcrumbList JSON-LD (schema.html); keyless/free.
 
-enableA11y = false
-enableSearch = true
-enableCodeCopy = false
-enableStructuredBreadcrumbs = true # Adds BreadcrumbList JSON-LD (schema.html); keyless/free.
-# enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
-
-replyByEmail = false
-
-# mainSections = ["section1", "section2"]
+# Content lives under content/projects; feeds recent-articles and RSS.
 mainSections = ["projects"]
-# robots = ""
-
-disableImageOptimization = false
-disableImageOptimizationMD = false
-disableTextInHeader = false
-# backgroundImageWidth = 1200
-
-# defaultBackgroundImage = "IMAGE.jpg" # used as default for background images
-# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
-# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
-hotlinkFeatureImage = false
-# Thumbnail aspect ratio as a number (e.g., "1.5", "1.0", "1.777")
-# thumbnailAspectRatio = "1.5"
-# imagePosition = "50% 50%"
-
-# highlightCurrentMenuArea = true
-# smartTOC = true
-# smartTOCHideUnfocusedChildren = true
-
-fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384", "sha256"
-
-giteaDefaultServer = "https://git.fsfe.org"
-forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [languageRedirect]
-enabled = true                             # Client-side redirect to browser preferred language (falls back to default: EN).
-storageKey = "blowfish_preferred_language" # localStorage key for manual language selections.
-# fallbackLanguage = "" # Language to use when no browser language matches. Defaults to Hugo's default content language.
-browserRedirectHomeOnly = true # Restrict browser-language redirects to home pages.
-storedLanguageRedirect = true  # Redirect to the stored language when a matching translation exists.
-
-[seo]
-# metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallback order for the HTML meta description. Valid values are "summary", "description", and "site".
-
-[header]
-layout = "basic" # valid options: basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur
+enabled = true                 # client-side redirect to browser-preferred language (EN fallback)
+browserRedirectHomeOnly = true
+storedLanguageRedirect = true
 
 [footer]
-showMenu = true
-showCopyright = true
-showThemeAttribution = false
-showAppearanceSwitcher = true
-showScrollToTop = true
+showThemeAttribution = false # owner decision: no "powered by" line
 
 [homepage]
-layout = "page" # valid options: page, profile, hero, card, background, custom
-#homepageImage = "IMAGE.jpg" # used in: hero, and card
+layout = "page"
 showRecent = true
 showRecentItems = 12
-showMoreLink = false
-showMoreLinkDest = "/projects/"
+showMoreLinkDest = "/projects/" # showMoreLink intentionally off
 cardView = true
-cardViewScreenWidth = false
-layoutBackgroundBlur = false    # only used when layout equals background
-disableHeroImageFilter = false  # only used when layout equals hero
 
 [article]
-showDate = false
-showViews = false
-showLikes = false
-showDateOnlyInArticle = false
-showDateUpdated = false
+showDate = false # portfolio pieces, not blog posts
 showAuthor = false
-showAuthorBottom = false
-showHero = false
-# heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
-layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
-layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-showBreadcrumbs = true             # Trail above the article title (related.html consumers: breadcrumbs.html).
-showDraftLabel = true
-showEdit = false
-# editURL = "https://github.com/username/repo/"
-editAppendPath = true
-seriesOpened = false
-showHeadingAnchors = true
-showPagination = true
-invertPagination = false
-showReadingTime = false
-showReadingProgress = false
-showTableOfContents = false
-showRelatedContent = true # Related pages under the article (theme partial related.html).
+showBreadcrumbs = true
+showRelatedContent = true # related pages under the article
 relatedContentLimit = 3
-showTaxonomies = true # Render tag pills in the article meta area.
+showTaxonomies = true # render tag pills in the article meta area
 showCategories = false
-showCategoriesInSecondaryColor = false # This will change the color of category badges, so the user can better distinguish between the two. Only if showTaxonomies is true.
-showAuthorsBadges = false
-showWordCount = false
+showWordCount = false # designer decision: word counts are noise on a visual portfolio
+showReadingTime = false # designer decision: ditto
 sharingLinks = [
   "linkedin",
   "twitter",
   "email",
-] # Pure outbound links, no JS keys (data/sharing.json keys).
-showZenMode = false
-# externalLinkForceNewTab = false # disable to allow external links in the same tab (defaults to true)
+] # pure outbound links, no JS/keys
 
 [list]
-showHero = false
-# heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
-layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-showBreadcrumbs = false
-showSummary = false
-showViews = false
-showLikes = false
-showTableOfContents = false
 showCards = true
 featureImageHover = true
 orderByWeight = true
 groupByYear = false
 cardView = true
-cardViewScreenWidth = false
-constrainItemsWidth = false
 
 [sitemap]
 excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
-showTermCount = true
-showHero = false
-# heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
-layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-showBreadcrumbs = false
-showViews = false
-showLikes = false
-showTableOfContents = false
-cardView = true                    # Card list on /tags/ index (terms.html).
+cardView = true # card list on /tags/ index
 
 [term]
-showHero = false
-# heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
-layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-showBreadcrumbs = false
-showViews = false
-showLikes = false
-showTableOfContents = true
-groupByYear = false
-cardView = true                    # Card list on /tags/<tag>/ pages (term.html).
-cardViewScreenWidth = false
-
-[firebase]
-# apiKey = "XXXXXX"
-# authDomain = "XXXXXX"
-# projectId = "XXXXXX"
-# storageBucket = "XXXXXX"
-# messagingSenderId = "XXXXXX"
-# appId = "XXXXXX"
-# measurementId = "XXXXXX"
-
-[fathomAnalytics]
-# site = "ABC12345"
-# domain = "llama.yoursite.com"
-
-[umamiAnalytics]
-# websiteid = "ABC12345"
-# domain = "llama.yoursite.com"
-# dataDomains = "yoursite.com,yoursite2.com"
-# scriptName = ""
-# enableTrackEvent = true
-
-[selineAnalytics]
-# token = "XXXXXX"
-# enableTrackEvent = true
-
-[buymeacoffee]
-# identifier = ""
-# globalWidget = true
-# globalWidgetMessage = "Hello"
-# globalWidgetColor = "#FFDD00"
-# globalWidgetPosition = "right"
-
-[verification]
-# google = ""
-# bing = ""
-# pinterest = ""
-# yandex = ""
-# fediverse = ""
-
-[rssnext]
-# feedId = ""
-# userId = ""
-
-[advertisement]
-# adsense = ""
+cardView = true # card list on /tags/<tag>/ pages

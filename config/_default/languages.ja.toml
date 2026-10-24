@@ -19,6 +19,3 @@ bio = "ファッションリテール | デジタルマーケティングスペ�
 image = "img/author.jpg"
 # email = ""
 links = []
-
-[outputs]
-home = ["HTML", "RSS", "JSON"]
