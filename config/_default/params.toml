@@ -33,7 +33,7 @@ autoSwitchAppearance = true
 enableA11y = false
 enableSearch = true
 enableCodeCopy = false
-enableStructuredBreadcrumbs = false
+enableStructuredBreadcrumbs = true # Adds BreadcrumbList JSON-LD (schema.html); keyless/free.
 # enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
 
 replyByEmail = false
@@ -108,7 +108,7 @@ showHero = false
 # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
 layoutBackgroundBlur = true        # only used when heroStyle equals background or thumbAndBackground
 layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-showBreadcrumbs = false
+showBreadcrumbs = true             # Trail above the article title (related.html consumers: breadcrumbs.html).
 showDraftLabel = true
 showEdit = false
 # editURL = "https://github.com/username/repo/"
@@ -120,14 +120,18 @@ invertPagination = false
 showReadingTime = false
 showReadingProgress = false
 showTableOfContents = false
-# showRelatedContent = false
-# relatedContentLimit = 3
-showTaxonomies = true                  # Render tag pills in the article meta area.
+showRelatedContent = true # Related pages under the article (theme partial related.html).
+relatedContentLimit = 3
+showTaxonomies = true # Render tag pills in the article meta area.
 showCategories = false
 showCategoriesInSecondaryColor = false # This will change the color of category badges, so the user can better distinguish between the two. Only if showTaxonomies is true.
 showAuthorsBadges = false
 showWordCount = false
-# sharingLinks = [ "linkedin", "twitter", "bluesky", "mastodon", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", "line"]
+sharingLinks = [
+  "linkedin",
+  "twitter",
+  "email",
+] # Pure outbound links, no JS keys (data/sharing.json keys).
 showZenMode = false
 # externalLinkForceNewTab = false # disable to allow external links in the same tab (defaults to true)
 
@@ -162,7 +166,7 @@ showBreadcrumbs = false
 showViews = false
 showLikes = false
 showTableOfContents = false
-cardView = false
+cardView = true                    # Card list on /tags/ index (terms.html).
 
 [term]
 showHero = false
@@ -174,7 +178,7 @@ showViews = false
 showLikes = false
 showTableOfContents = true
 groupByYear = false
-cardView = false
+cardView = true                    # Card list on /tags/<tag>/ pages (term.html).
 cardViewScreenWidth = false
 
 [firebase]

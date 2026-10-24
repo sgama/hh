@@ -1,6 +1,5 @@
 # Project-level i18n overrides (merged over the theme's i18n/en.yaml).
+# Only keys that deliberately differ from the theme's copy live here.
 error:
-  404_error: "Error 404"
   404_title: "Page Not Found :thought_balloon:"
   404_description: "The page you're looking for isn't in the portfolio — it may have been moved, or never made the final cut."
-  404_home: "Take me home"
