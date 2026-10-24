@@ -1,0 +1,21 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Go / Hugo modules
+vendor/
+
+# Uncompressed originals kept as backup before media-optimize rewrites in place
+originals/
+
+# Dev-server scratch output (isolated from static public/ builds)
+.hugo-dev/
+
+# OS noise
+.DS_Store
+
+# Local scratch
+/tmp/
+.opencode/
+.opencode

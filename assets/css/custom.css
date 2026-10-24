@@ -1,0 +1,15 @@
+/*
+ * Project CSS overrides — loaded after the theme bundle by head.html.
+ *
+ * Full-width layout: article pages span the main container (capped at
+ * max-w-7xl on <body>) instead of the theme's 65ch prose measure, so content
+ * reads full width even without a table of contents / sidebar.
+ */
+
+section.prose,
+article section.prose > div.min-w-0,
+article .article-content,
+article header#single_header,
+article footer.max-w-prose {
+  max-width: none;
+}

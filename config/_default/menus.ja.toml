@@ -1,0 +1,22 @@
+# -- メインメニュー --
+# ヘッダーに表示されるメインメニューです。
+
+[[main]]
+name = "プロジェクト"
+pageRef = "projects"
+weight = 10
+
+[[main]]
+name = "私について"
+pageRef = "about"
+weight = 20
+
+[[main]]
+name = "資格・認定"
+pageRef = "certifications"
+weight = 30
+
+[[main]]
+name = "お問い合わせ"
+pageRef = "contact"
+weight = 40

@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+
+      # Version in the theme-supported range (Blowfish v3.x: 0.164-0.167)
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.167.0"
+          extended: true
+
+      - name: Install taplo
+        run: |
+          curl -fsSL -o /tmp/taplo.gz \
+            "https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86_64.gz"
+          gunzip /tmp/taplo.gz && chmod +x /tmp/taplo
+          sudo mv /tmp/taplo /usr/local/bin/taplo
+
+      - name: Lint
+        run: make lint
+
+      - name: Strict build
+        run: make build-strict
+
+      - name: Verify Hugo modules
+        run: hugo mod verify 2>&1 | tail -5

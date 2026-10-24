@@ -1,0 +1,15 @@
+{
+  // Pragmatic style for content edits; content correctness (facts/links) is
+  // reviewed manually, this keeps automated gates meaningful.
+  "config": {
+    "globs": ["**/*.md", "!public/**", "!.hugo-dev/**", "!node_modules/**", "!.tools/**"]
+  },
+  "MD013": false,
+  "MD025": false,
+  "MD026": false,
+  "MD033": false,
+  "MD034": false,
+  "MD036": false,
+  "MD041": false,
+  "MD046": false
+}

@@ -1,0 +1,66 @@
+{{/* Custom project-local hero style: self-hosted looping video backdrop.
+      Scoped to pages that opt in with front-matter heroStyle: "video" —
+      no theme behavior changes elsewhere. Modeled on hero/background.html.
+
+      Front matter keys:
+        showHero: true
+        heroStyle: "video"
+        heroVideo:        <assets-relative path, e.g. img/about-hero.mp4>
+        heroVideoPoster:  <assets-relative path> (optional but strongly recommended)
+
+      All media MUST resolve via resources.Get (self-hosted in assets/);
+      external/hotlinked URLs are intentionally unsupported here. */}}
+
+{{ $video := "" }}
+{{ $poster := "" }}
+{{ with .Params.heroVideo }}
+  {{ $video = resources.Get . }}
+{{ end }}
+{{ with .Params.heroVideoPoster }}
+  {{ $poster = resources.Get . }}
+{{ end }}
+{{ if not $poster }}
+  {{ range .Translations }}
+    {{ with .Params.heroVideoPoster }}{{ $poster = resources.Get . }}{{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $scope := .Scratch.Get "scope" }}
+{{ $shouldAddHeaderSpace := $.Params.layoutBackgroundHeaderSpace | default true }}
+{{ $shouldBlur := $.Params.layoutBackgroundBlur | default (and
+  ($.Site.Params.article.layoutBackgroundBlur | default true)
+  (eq $scope "single"))
+}}
+
+{{ if $video }}
+  {{ if $shouldAddHeaderSpace }}
+    <div id="hero" class="h-[150px] md:h-[200px]"></div>
+  {{ end }}
+  <div id="hero-background" class="hero-canvas-fade fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom">
+    <video
+      id="background-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      role="presentation"
+      {{ with $.Params.imagePosition }}style="object-position: {{ . }};"{{ end }}
+      {{ with $poster }}poster="{{ .RelPermalink }}"{{ end }}
+      class="absolute inset-0 w-full h-full object-cover">
+      <source src="{{ $video.RelPermalink }}" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-neutral/60 dark:bg-neutral-800/50"></div>
+  </div>
+
+  {{ if $shouldBlur }}
+    {{/* same scroll-fade hook hero/background.html uses for the "fade" blur style */}}
+    {{ $heroFade := resources.Get "js/hero-scroll-fade.js" }}
+    {{ $heroFade = $heroFade | resources.Minify | resources.Fingerprint ($.Site.Params.fingerprintAlgorithm | default "sha512") }}
+    <script
+      type="text/javascript"
+      src="{{ $heroFade.RelPermalink }}"
+      integrity="{{ $heroFade.Data.Integrity }}"
+      data-hero-id="hero-background"
+      data-fade-distance="500"></script>
+  {{ end }}
+{{ end }}

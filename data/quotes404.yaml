@@ -1,0 +1,14 @@
+# Rotating quotes for the 404 page (layouts/404.html picks one at random,
+# localized by the "lang" field). Showcasing designers H. Haruna admires.
+- lang: en
+  line: "Design is thinking made visual."
+  source: "Saul Bass"
+- lang: en
+  line: "You can't use up creativity. The more you use, the more you have."
+  source: "Maya Angelou"
+- lang: ja
+  line: "デザインとは、視覚として体現された思考である。"
+  source: "ソール・バス"
+- lang: ja
+  line: "クリエイティビティは使い切ることができない。使うほどに増えていく。"
+  source: "マヤ・アンジェロー"

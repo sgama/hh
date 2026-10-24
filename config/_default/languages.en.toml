@@ -1,0 +1,21 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Haruna Hatakeyama"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+# logo = "img/logo.png"
+description = "Portfolio of Haruna Hatakeyama — Fashion Retail | Digital Marketing Specialist | Vancouver"
+# copyright = "© Haruna Hatakeyama"
+
+[params.author]
+name = "Haruna Hatakeyama"
+headline = "H. Haruna Portfolio"
+bio = "Fashion Retail | Digital Marketing Specialist | Vancouver"
+image = "img/author.jpg"
+links = []
