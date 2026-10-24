@@ -1,16 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: Email & Newsletter Marketing
 description: "Developed email and newsletter campaigns with the marketing team, spanning landing page design, visual content creation, and marketing copywriting."
 summary: Collaborated with the marketing team to develop email and newsletter campaigns, including landing page design, visual content creation, and marketing copywriting.
-images:
-  - images/01.jpg
-  - images/02.png
-  - images/03.png
-  - images/04.png
 tags:
   - Email Marketing
 weight: 8
 featureimage: "images/01.jpg"
+images: ["images/01.jpg"]
 ---
 
 Developed email and newsletter campaigns with the marketing team — from landing page design and visual content through to campaign copy.

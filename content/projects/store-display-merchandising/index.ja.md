@@ -1,21 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: 店舗ディスプレイ＆マーチャンダイジング
 description: "色彩、シルエット、素材をもとに商品を配置し、マネキンスタイリングやディスプレイのコーディネートを通じて、より直感的な店舗の買い物体験をつくりました。"
 summary: 色彩、シルエット、素材をもとに商品を配置し、商品の魅力と視認性を高め、より直感的に楽しめる買い物体験をつくりました。
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.jpg
-  - images/04.png
-  - images/05.png
-  - images/06.jpg
-  - images/07.png
-  - images/08.png
-  - images/09.png
 tags:
   - ビジュアルマーチャンダイジング
 weight: 9
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 色彩、シルエット、素材をもとに商品を整理・配置し、商品の視認性と魅力を高め、より直感的な買い物体験を実現しました。マネキンのスタイリングや商品ディスプレイのコーディネートを通じて、シーズンコレクションやコーディネート提案を効果的にアピールしました。

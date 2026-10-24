@@ -18,8 +18,16 @@ PUBLIC = os.path.join(ROOT, "public")
 referenced = set()
 for html in glob.glob(f"{PUBLIC}/**/*.html", recursive=True):
     text = open(html, encoding="utf-8", errors="replace").read()
-    for m in re.findall(r'(?:src|href|srcset)="[^"]*"', text):
-        referenced.update(re.findall(r"(?:srcset=\"):?([^\" ]+)", m))
+    for attr, val in re.findall(r'((?:src|href|srcset|content))="([^"]+)"', text):
+        # og/twitter meta and canonical links use absolute URLs; normalize to
+        # their site-relative path so they can be matched against public/.
+        if attr == "srcset":
+            candidates = [c.split()[0] for c in val.split(",")]
+        else:
+            candidates = [val]
+        for u in candidates:
+            absurl = re.match(r"https?://[^/]+(/.*)", u)
+            referenced.add(absurl.group(1) if absurl else u)
 
 pruned = 0
 for p in glob.glob(f"{PUBLIC}/projects/*/images/*"):

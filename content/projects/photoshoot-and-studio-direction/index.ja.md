@@ -1,15 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: 撮影・スタジオディレクション
 description: "ヘアメイクアーティストとの連携やモデルのスタイリング、スタジオ・ロケーション撮影の制作サポートを通じて、ファッション撮影のクリエイティブディレクションを支援しました。"
 summary: ヘアメイクアーティストとの連携、モデルのスタイリング、スタジオおよびロケーション撮影の制作サポートを通じて、ファッション撮影のクリエイティブディレクションをサポートしました。
-images:
-  - images/01.jpeg
-  - images/02.jpeg
-  - images/03.jpeg
 tags:
   - クリエイティブディレクション
 weight: 11
 featureimage: "images/01.jpeg"
+images: ["images/01.jpeg"]
 ---
 
 ヘアメイクアーティストとの連携、モデルのスタイリング、スタジオ撮影とロケーション撮影の両方の制作サポートを通じて、ファッション撮影のクリエイティブディレクションをサポートしました。

@@ -1,15 +1,15 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: "Paid Social広告運用"
 description: "Meta Ads ManagerでPaid Social広告を運用し、ターゲット設定から広告クリエイティブ、コピーライティングまで担当しました。GA4を活用し、キャンペーンのパフォーマンスを計測しています。"
 summary: "Meta Ads Managerを使ったPaid Social広告キャンペーンの運用を担当しました。ターゲットオーディエンスの設定、広告クリエイティブの開発、コピーライティング、EC向けキャンペーンの企画まで一貫して手がけています。"
-images:
-  - images/01.png
-  - images/02.png
 tags:
   - 広告
   - SNS広告
 weight: 3
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 Meta Ads ManagerでPaid Social広告を一環して運用しました。オーディエンス設計から広告クリエイティブ、コピーまで担当しています。

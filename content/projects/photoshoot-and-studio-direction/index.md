@@ -1,15 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: Photoshoot and Studio Direction
 description: "Supported the creative direction of fashion photoshoots through hair and makeup coordination, model styling, and production support for both studio and on-location shoots."
 summary: Assisted in creative direction for fashion photoshoots by coordinating with hair and makeup artists, styling models, and supporting both studio and on-location photography production.
-images:
-  - images/01.jpeg
-  - images/02.jpeg
-  - images/03.jpeg
 tags:
   - Creative Direction
 weight: 11
 featureimage: "images/01.jpeg"
+images: ["images/01.jpeg"]
 ---
 
 Assisted in creative direction for fashion photoshoots by coordinating with hair and makeup artists, styling models, and supporting both studio and on-location photography production.

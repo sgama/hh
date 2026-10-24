@@ -1,15 +1,15 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: "Paid Social Advertising"
 description: "Managed paid social campaigns in Meta Ads Manager for e-commerce, handling audience targeting, ad creative development, and copywriting, with GA4 used to track performance."
 summary: "Managed paid social advertising campaigns through Meta Ads Manager, including audience targeting, ad creative development, copywriting, and campaign planning for e-commerce."
-images:
-  - images/01.png
-  - images/02.png
 tags:
   - Advertising
   - Paid Social
 weight: 3
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 Managed paid social campaigns end-to-end in Meta Ads Manager for a fashion e-commerce brand — from audience structure to ad creative and copy.

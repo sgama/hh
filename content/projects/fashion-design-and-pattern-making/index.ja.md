@@ -1,20 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: ファッションデザインとパターンメイキング
 description: "ファッションデザインとパターンメイキングを学び、服づくりの構造、シルエット、素材についての基礎を築きました。この知識は、ECディレクションやビジュアルマーチャンダイジング、オンラインでの顧客体験づくりに活きています。"
 summary: ファッションデザインとパターンメイキングを学び、衣服の構造、シルエット、素材に関する基礎知識を身につけました。
-images:
-  - images/01.jpg
-  - images/02.png
-  - images/03.png
-  - images/04.png
-  - images/05.jpeg
-  - images/06.jpeg
-  - images/07.png
-  - images/08.jpg
 tags:
   - ファッションデザイン
 weight: 12
 featureimage: "images/01.jpg"
+images: ["images/01.jpg"]
 ---
 
 ファッションデザインとパターンメイキングを学び、服づくりの構造、シルエット、素材について基礎的な理解を構築しました。この知識は、ECディレクション、ビジュアルマーチャンダイジング、オンラインでの顧客体験の設計において、より深い配慮のアプローチにつながっています。

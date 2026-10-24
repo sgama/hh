@@ -1,18 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: Digital Marketing Campaign
 description: "Planned and ran digital marketing campaigns for online retail, from paid ads and free shipping promotions to gift-with-purchase offers and special customer events."
 summary: Planned digital marketing campaigns including online advertisements, free shipping promotions, exclusive sales, gift-with-purchase offers, and special customer events.
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.png
-  - images/04.png
-  - images/05.jpg
-  - images/06.png
 tags:
   - Digital Marketing
 weight: 6
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 Planned and ran digital marketing campaigns for an online fashion retailer, pairing paid channels with conversion-driving promotions.

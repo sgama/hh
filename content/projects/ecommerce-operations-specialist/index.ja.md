@@ -1,21 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: "EC運用スペシャリスト"
 description: "EC運用で5年の経験を持ち、商品アップロードから在庫管理、出荷連携、顧客対応、バックオフィス業務まで、オンラインストア運営全体を統括しています。"
 summary: "EC運用で5年の経験を持ち、商品アップロード、在庫管理、出荷連携、顧客対応、バックオフィス業務など、オンラインストア運営全体を統括しました。"
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.jpg
-  - images/04.jpg
-  - images/05.jpg
-  - images/06.jpg
-  - images/07.jpg
-  - images/08.png
-  - images/09.png
 tags:
   - EC
 weight: 1
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 EC運用で5年の経験を持ち、商品アップロード、在庫管理、出荷連携、顧客サポート、バックオフィス業務まで、オンラインストア運営全体を統括しています。そのほか、Webサイトの更新、商品ページの企画、返品ポリシーやお買い物ガイド、ストア案内ページといった顧客向けコンテンツの制作にも携わりました。

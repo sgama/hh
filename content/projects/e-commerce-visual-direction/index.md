@@ -1,16 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: "E-commerce Visual Direction"
 description: "Directed seasonal SS/FW collection pages for the online store end to end, from visual design and copywriting to homepage banner production."
 summary: "Led the creation of seasonal SS/FW collection pages from visual design to copywriting, including homepage banners."
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.png
-  - images/04.png
 tags:
   - E-commerce
 weight: 2
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 Led the creation of seasonal SS/FW collection pages from visual design to copywriting, including homepage banners.

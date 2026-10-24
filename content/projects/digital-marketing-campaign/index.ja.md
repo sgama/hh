@@ -1,18 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: デジタルマーケティングキャンペーン
 description: "オンライン広告から送料無料キャンペーン、期間限定セール、GWP（ノベルティ）プレゼント、特別な顧客イベントまで、EC向けのデジタルマーケティングキャンペーンを企画・実施しました。"
 summary: オンライン広告、送料無料キャンペーン、期間限定セール、ノベルティプレゼント、特別顧客イベントなど、デジタルマーケティングキャンペーンを企画しました。
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.png
-  - images/04.png
-  - images/05.jpg
-  - images/06.png
 tags:
   - デジタルマーケティング
 weight: 6
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 オンラインファッションEC向けに、有料チャネルと転換を促すプロモーションを組み合わせたデジタルマーケティングキャンペーンを企画・実行しました。

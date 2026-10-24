@@ -1,27 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: デジタルマーケティング撮影
 description: "デジタルマーケティングの撮影では、モデルの手配やスタジオ選定、スタイリングを担当し、プロモーションやブランディング向けコンテンツの撮影をサポート・ディレクションしました。"
 summary: デジタルマーケティングキャンペーンに向けて、モデルの手配、スタジオ選定、スタイリングをサポートしました。
-images:
-  - images/01.jpg
-  - images/02.jpg
-  - images/03.jpg
-  - images/04.jpg
-  - images/05.jpg
-  - images/06.jpg
-  - images/07.jpg
-  - images/08.jpg
-  - images/09.jpg
-  - images/10.jpg
-  - images/11.jpg
-  - images/12.jpg
-  - images/13.jpg
-  - images/14.jpg
-  - images/15.jpg
 tags:
   - 写真撮影
 weight: 10
 featureimage: "images/01.jpg"
+images: ["images/01.jpg"]
 ---
 
 デジタルマーケティングキャンペーンに向けて、モデルの手配、スタジオ選定、スタイリングをサポートしました。プロモーションおよびブランディングコンテンツのための撮影では、サポートとディレクションの両方を担当しました。

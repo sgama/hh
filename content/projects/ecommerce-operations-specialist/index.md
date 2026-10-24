@@ -1,21 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: "E-commerce Operations Specialist"
 description: "Five years of hands-on e-commerce operations covering product uploads, inventory control, shipping coordination, customer support, and day-to-day online store management."
 summary: "5 years of experience in e-commerce operations, overseeing online store management including product uploads, inventory control, shipping coordination, customer support, and backend operations."
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.jpg
-  - images/04.jpg
-  - images/05.jpg
-  - images/06.jpg
-  - images/07.jpg
-  - images/08.png
-  - images/09.png
 tags:
   - E-commerce
 weight: 1
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 5 years of experience in e-commerce operations, overseeing online store management including product uploads, inventory control, shipping coordination, customer support, and backend operations. Also contributed to website updates, product page planning, and customer-facing content such as return policies, shopping guidelines, and storefront information pages.

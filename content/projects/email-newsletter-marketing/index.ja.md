@@ -1,16 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: メール＆ニュースレターマーケティング
 description: "マーケティングチームと連携し、ランディングページのデザインやビジュアル制作、マーケティングコピーライティングまで含めたメール・ニュースレターキャンペーンを展開しました。"
 summary: マーケティングチームと連携し、ランディングページのデザイン、ビジュアルコンテンツの制作、マーケティングコピーライティングを含むメール・ニュースレターキャンペーンを企画・展開しました。
-images:
-  - images/01.jpg
-  - images/02.png
-  - images/03.png
-  - images/04.png
 tags:
   - メールマーケティング
 weight: 8
 featureimage: "images/01.jpg"
+images: ["images/01.jpg"]
 ---
 
 マーケティングチームと連携し、メール・ニュースレターキャンペーンを展開しました。ランディングページのデザインからビジュアル制作、コピーまで担当しています。

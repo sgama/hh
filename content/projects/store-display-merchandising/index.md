@@ -1,21 +1,14 @@
 ---
+build:
+  publishResources: false # pristine originals are source-only; templates publish processed variants on demand
 title: Store Display & Merchandising
 description: "Arranged merchandise by color, silhouette, and fabric to boost visibility and appeal, styling mannequins and product displays that made in-store shopping more intuitive."
 summary: Organized merchandise by color, silhouette, and fabric to improve product visibility and create a more intuitive shopping experience.
-images:
-  - images/01.png
-  - images/02.png
-  - images/03.jpg
-  - images/04.png
-  - images/05.png
-  - images/06.jpg
-  - images/07.png
-  - images/08.png
-  - images/09.png
 tags:
   - Visual Merchandising
 weight: 9
 featureimage: "images/01.png"
+images: ["images/01.png"]
 ---
 
 Organized merchandise by color, silhouette, and fabric to improve product visibility and create a more intuitive shopping experience. Styled mannequins and coordinated product displays to highlight seasonal collections and outfit combinations.
