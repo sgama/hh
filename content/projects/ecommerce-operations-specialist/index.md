@@ -10,7 +10,7 @@ images:
   - images/06.jpg
   - images/07.jpg
   - images/08.png
-  - images/09.png
+  - images/09.webp
 tags:
   - E-commerce
 weight: 1
@@ -28,5 +28,5 @@ featureimage: "images/01.png"
 <img src="images/06.jpg" alt="gallery image 6 of E-commerce Operations Specialist" loading="lazy" />
 <img src="images/07.jpg" alt="gallery image 7 of E-commerce Operations Specialist" loading="lazy" />
 <img src="images/08.png" alt="gallery image 8 of E-commerce Operations Specialist" loading="lazy" />
-<img src="images/09.png" alt="gallery image 9 of E-commerce Operations Specialist" loading="lazy" />
+<img src="images/09.webp" alt="gallery image 9 of E-commerce Operations Specialist" loading="lazy" />
 {{< /gallery >}}

@@ -10,7 +10,7 @@ images:
   - images/06.jpg
   - images/07.jpg
   - images/08.png
-  - images/09.png
+  - images/09.webp
 tags:
   - EC
 weight: 1
@@ -28,5 +28,5 @@ EC運用で5年の経験を持ち、商品アップロード、在庫管理、�
 <img src="images/06.jpg" alt="EC運用スペシャリスト — ギャラリー画像 6" loading="lazy" />
 <img src="images/07.jpg" alt="EC運用スペシャリスト — ギャラリー画像 7" loading="lazy" />
 <img src="images/08.png" alt="EC運用スペシャリスト — ギャラリー画像 8" loading="lazy" />
-<img src="images/09.png" alt="EC運用スペシャリスト — ギャラリー画像 9" loading="lazy" />
+<img src="images/09.webp" alt="EC運用スペシャリスト — ギャラリー画像 9" loading="lazy" />
 {{< /gallery >}}

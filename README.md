@@ -57,6 +57,22 @@ Set your production URL in `config/_default/hugo.toml` (`baseURL`) and build wit
 - `baseURL` — intentionally stays `http://localhost:1313/` until a production domain/host is chosen; every absolute link (sitemap, Open Graph, hreflang) derives from it at build time.
 - Contact form — posts to `https://formspree.io/f/YOUR_FORM_ID`; create a form at formspree.io and replace the ID in **both** `content/contact.md` and `content/contact.ja.md`.
 
+## Media pipeline
+
+`make media-optimize` keeps repository images small and the originals reproducible:
+
+1. **Backup** — before touching anything it saves an untouched replica of every file it rewrites to `originals/` (gitignored — local safety net, never committed).
+2. **Convert** — PNG/JPEG sources larger than 1 MB are re-encoded as **WebP** (q78) when that saves ≥ 40%; all references (front matter, galleries, layouts) are rewritten automatically. Resistance to quantization keeps photographic PNGs converted in the next sweep.
+3. **Quantize** — remaining PNGs via `pngquant`, JPEGs via `jpegoptim`.
+
+Everything is idempotent; re-running is safe.
+
+- `scripts/optimize-media.py` — the pipeline above (called by `make media-optimize`; requires `cwebp`, `pngquant`, `jpegoptim`).
+- `scripts/fetch-original-media.py` — disaster-recovery downloader: refetches **all original Wix gallery images** (plus shared assets) at full quality into `originals/content/<bundle>/images/NN_<media-id>.<ext>`, so the source set can be reprocessed or restored from scratch if the Wix site ever disappears (sources to `https://hharuna0606.wixsite.com`; `--force` refetches everything).
+- Restore a lost file: `cp originals/content/projects/<slug>/images/<file> content/projects/<slug>/images/` (reference suffixes may differ from the live bundle's webp names — check front matter).
+
+Note: stop the dev server (or run once with `--disableFastRender`) while the conversion phase rewrites files; Hugo 0.168's fast-render watcher can panic when page resources rename mid-rebuild.
+
 ## Multilingual (EN / 日本語)
 
 - English is the default language; translations use **filename suffixes** (`index.ja.md`, `about.ja.md`, …) so page bundles and their images are shared between languages.

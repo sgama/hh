@@ -68,14 +68,8 @@ i18n-check: ## Fail when a source-of-truth EN content page lacks a .ja.md transl
 images-audit: ## List images >2MB (candidates for recompression)
 	@find content assets -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -size +2M -print
 
-media-optimize: ## Optimize PNG/JPEG under content/ + assets/ in-place (pngquant + jpegoptim); untouched copies kept in originals/ (gitignored safety net)
-	@before=$$(du -sk content assets 2>/dev/null | cut -f1 | paste -sd+ | bc); \
-	find content assets -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) -print0 | \
-	  xargs -0 -r -I{} sh -c 'test -e originals/{} || { mkdir -p originals/$$(dirname {}); cp {} originals/{}; }'; \
-	find content assets -type f -iname '*.png' -print0 | xargs -0 -r pngquant --strip --skip-if-larger --quality 70-95 --force --ext .png; \
-	find content assets -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -print0 | xargs -0 -r jpegoptim --strip-all --max=85 --quiet; \
-	after=$$(du -sk content assets 2>/dev/null | cut -f1 | paste -sd+ | bc); \
-	echo "✔ media-optimize done ($$before KB -> $$after KB; originals preserved in .gitignored originals/)"
+media-optimize: ## Optimize PNG/JPEG under content/ + assets/: oversize -> WebP (cwebp), then pngquant/jpegoptim; untouched replicas live in originals/ (gitignored safety net)
+	@python3 scripts/optimize-media.py
 
 clean: ## Remove build artifacts
 	rm -rf public resources/_gen .hugo_build.lock

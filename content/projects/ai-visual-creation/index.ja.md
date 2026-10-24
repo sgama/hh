@@ -6,7 +6,7 @@ images:
   - images/02.png
   - images/03.png
   - images/04.png
-  - images/05.jpeg
+  - images/05.webp
   - images/06.png
   - images/07.png
 tags:
@@ -22,7 +22,7 @@ EC用途に向けたデジタル商品ビジュアルを制作しました。AI�
 <img src="images/02.png" alt="ai-visual-creation — ギャラリー画像 2" loading="lazy" />
 <img src="images/03.png" alt="ai-visual-creation — ギャラリー画像 3" loading="lazy" />
 <img src="images/04.png" alt="ai-visual-creation — ギャラリー画像 4" loading="lazy" />
-<img src="images/05.jpeg" alt="ai-visual-creation — ギャラリー画像 5" loading="lazy" />
+<img src="images/05.webp" alt="ai-visual-creation — ギャラリー画像 5" loading="lazy" />
 <img src="images/06.png" alt="ai-visual-creation — ギャラリー画像 6" loading="lazy" />
 <img src="images/07.png" alt="ai-visual-creation — ギャラリー画像 7" loading="lazy" />
 {{< /gallery >}}
