@@ -21,3 +21,4 @@ originals/
 scripts/__pycache__/
 *.webp-tmp
 .webp-tmp/
+.slim/deepwork/

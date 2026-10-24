@@ -10,8 +10,8 @@ images:
   - images/05.jpg
   - images/06.jpg
   - images/07.jpg
-  - images/08.webp
-  - images/09.webp
+  - images/08.png
+  - images/09.png
 tags:
   - E-commerce
 weight: 1
@@ -28,6 +28,6 @@ featureimage: "images/01.png"
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/05.jpg" alt="gallery image 5 of E-commerce Operations Specialist" loading="lazy" />
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/06.jpg" alt="gallery image 6 of E-commerce Operations Specialist" loading="lazy" />
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/07.jpg" alt="gallery image 7 of E-commerce Operations Specialist" loading="lazy" />
-<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/08.webp" alt="gallery image 8 of E-commerce Operations Specialist" loading="lazy" />
-<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/09.webp" alt="gallery image 9 of E-commerce Operations Specialist" loading="lazy" />
+<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/08.png" alt="gallery image 8 of E-commerce Operations Specialist" loading="lazy" />
+<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/09.png" alt="gallery image 9 of E-commerce Operations Specialist" loading="lazy" />
 {{< /gallery >}}
