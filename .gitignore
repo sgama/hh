@@ -18,4 +18,4 @@ originals/
 # Local scratch
 /tmp/
 .opencode/
-.scripts
+scripts/__pycache__/
