@@ -1,5 +1,6 @@
 ---
 title: "E-commerce Operations Specialist"
+description: "Five years of hands-on e-commerce operations covering product uploads, inventory control, shipping coordination, customer support, and day-to-day online store management."
 summary: "5 years of experience in e-commerce operations, overseeing online store management including product uploads, inventory control, shipping coordination, customer support, and backend operations."
 images:
   - images/01.png
@@ -9,7 +10,7 @@ images:
   - images/05.jpg
   - images/06.jpg
   - images/07.jpg
-  - images/08.png
+  - images/08.webp
   - images/09.webp
 tags:
   - E-commerce
@@ -27,6 +28,6 @@ featureimage: "images/01.png"
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/05.jpg" alt="gallery image 5 of E-commerce Operations Specialist" loading="lazy" />
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/06.jpg" alt="gallery image 6 of E-commerce Operations Specialist" loading="lazy" />
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/07.jpg" alt="gallery image 7 of E-commerce Operations Specialist" loading="lazy" />
-<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/08.png" alt="gallery image 8 of E-commerce Operations Specialist" loading="lazy" />
+<img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/08.webp" alt="gallery image 8 of E-commerce Operations Specialist" loading="lazy" />
 <img class="grid-w50 md:grid-w33 xl:grid-w25" src="images/09.webp" alt="gallery image 9 of E-commerce Operations Specialist" loading="lazy" />
 {{< /gallery >}}

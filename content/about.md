@@ -7,13 +7,11 @@ heroVideo: "img/about-hero.mp4"
 heroVideoPoster: "img/about-hero-poster.jpg"
 ---
 
-# About Me - Your Next Digital Marketer
+# About Me — Your Next Digital Marketer
 
-I have always been passionate about fashion, seeing it not only as a form of self-expression but also as a tool for building confidence. This passion inspired my journey into retail e-commerce, where I excel at leveraging digital marketing strategies to enhance brand visibility and customer engagement through innovative tools and technologies.
+I'm a fashion-retail marketer who ships end-to-end e-commerce — paid social via Meta Ads Manager, email marketing, store displays and product photography, and the storefront operations behind them.
 
-With over five years of experience as an E-commerce Specialist, I have managed both frontend and backend operations. My work includes website management, email marketing, content creation, customer inquiries, inventory management, shipping logistics, and payment processing. I have also directed product photography shoots for a cohesive visual identity.
-
-In my commitment to continuous learning, I pursued studies in fashion design and pattern making while advancing my skills in English and digital marketing. I look forward to furthering my career in retail e-commerce and contributing my expertise to drive business growth and innovation.
+Over five years as an e-commerce specialist I've run both the storefront and the back office: website direction and content calendars, email campaigns, copywriting, photography direction, inventory, and order fulfillment. The throughline: turning brand visuals into a measurable growth channel — a 60% email-driven sales lift and +10% traffic from customer-data analysis are the numbers I point to first.
 
 ![Portrait of Haruna Hatakeyama](/img/author.jpg)
 
@@ -35,7 +33,7 @@ Managed third-party e-commerce back offices and content calendars for website ba
 
 **Dec 2019 - Dec 2022**
 
-Directed Titlest e-commerce site, managing inventory, order fulfillment, and ensuring brand consistency. Boosted sales by 60% through email marketing and increased website traffic by 10% through customer data analysis.
+Directed Titleist e-commerce site, managing inventory, order fulfillment, and ensuring brand consistency. Boosted sales by 60% through email marketing and increased website traffic by 10% through customer data analysis.
 
 ### Forever 21 Japan Retail
 
@@ -77,6 +75,10 @@ California, USA
 
 International Exchange Program
 
-## Tools and Brands Overview
+## Tools and Platforms
+
+- **Advertising & analytics:** Meta Ads Manager, Google Analytics 4 (GA4)
+- **Design & visual:** Adobe Photoshop
+- **Store operations:** content calendars, product shoot direction, e-commerce back office
 
 ![Tools and Brands Overview](/img/tools-brands.png)

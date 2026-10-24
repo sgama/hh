@@ -1,5 +1,6 @@
 ---
 title: "Brand Identity & Social Direction"
+description: "Shaped the brand’s visual identity through themed Instagram content, story highlight design, and social media direction aligned with the online storefront."
 summary: "Helped shape the brand’s visual identity through themed Instagram content, story highlight design, branding pages, and cohesive social media direction aligned with the online storefront."
 images:
   - images/01.png

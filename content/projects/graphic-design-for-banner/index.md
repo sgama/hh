@@ -1,5 +1,6 @@
 ---
 title: Graphic Design For Banner
+description: "Designed banner graphics for social media posts, email campaigns, and web pages, applying color coordination theory in Photoshop."
 summary: Graphic design for banner of social media posts, email, and webpage contents.
 images:
   - images/01.jpg

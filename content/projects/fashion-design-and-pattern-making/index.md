@@ -1,5 +1,6 @@
 ---
 title: Fashion Design and Pattern Making
+description: "Studied fashion design and pattern making, gaining a working knowledge of garment construction, silhouette, and materials that informs a considered approach to visual merchandising and the online customer experience."
 summary: Studied fashion design and pattern making, building a foundational understanding of garment construction, silhouette, and materials.
 images:
   - images/01.jpg

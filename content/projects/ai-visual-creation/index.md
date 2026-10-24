@@ -1,5 +1,6 @@
 ---
 title: AI Visual Creation
+description: "Created AI-assisted product visuals for online stores, covering campaign imagery, ghost-mannequin apparel photography, and studio-style product shots."
 summary: Produced digital product visuals for e-commerce use, including AI-assisted campaign imagery, ghost mannequin apparel photos, and studio-style product presentations.
 images:
   - images/01.jpg

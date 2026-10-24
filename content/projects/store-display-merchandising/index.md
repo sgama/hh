@@ -1,5 +1,6 @@
 ---
 title: Store Display & Merchandising
+description: "Arranged merchandise by color, silhouette, and fabric to boost visibility and appeal, styling mannequins and product displays that made in-store shopping more intuitive."
 summary: Organized merchandise by color, silhouette, and fabric to improve product visibility and create a more intuitive shopping experience.
 images:
   - images/01.png

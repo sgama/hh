@@ -1,4 +1,5 @@
 locale = "ja"
+disabled = false
 label = "日本語"
 weight = 2
 title = "Haruna Hatakeyama"

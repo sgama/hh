@@ -19,3 +19,5 @@ originals/
 /tmp/
 .opencode/
 scripts/__pycache__/
+*.webp-tmp
+.webp-tmp/

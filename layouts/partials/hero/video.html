@@ -45,7 +45,7 @@
       playsinline
       role="presentation"
       {{ with $.Params.imagePosition }}style="object-position: {{ . }};"{{ end }}
-      {{ with $poster }}poster="{{ .RelPermalink }}"{{ end }}
+      {{ with $poster }}poster="{{ .RelPermalink }}"{{ end }}{{ with $video }} preload="none"{{ end }}
       class="absolute inset-0 w-full h-full object-cover">
       <source src="{{ $video.RelPermalink }}" type="video/mp4" />
     </video>

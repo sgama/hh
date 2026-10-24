@@ -1,5 +1,6 @@
 ---
 title: "E-commerce Visual Direction"
+description: "Directed seasonal SS/FW collection pages for the online store end to end, from visual design and copywriting to homepage banner production."
 summary: "Led the creation of seasonal SS/FW collection pages from visual design to copywriting, including homepage banners."
 images:
   - images/01.webp

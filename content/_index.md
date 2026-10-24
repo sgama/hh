@@ -3,10 +3,10 @@ title: "H. Haruna Portfolio"
 description: "Portfolio of Haruna Hatakeyama — work in fashion retail, e-commerce, and digital marketing."
 ---
 
-# Fashion Retail | Digital Marketing Specialist | Vancouver
+# Digital Marketing Specialist | Fashion Retail | Vancouver
 
 ## Welcome to my portfolio
 
-Here you’ll find a selection of my work in fashion retail, e-commerce, and digital marketing. Explore my projects to learn more about my experience in visual direction, branding, and online store management.
+I'm a fashion-retail marketer who ships end-to-end e-commerce: paid social in Meta Ads Manager, email campaigns, store displays and product photography, and the online-store operations behind them. Outcomes I've driven include a 60% email-driven sales lift and +10% site traffic from customer-data analysis.
 
-Digital Marketing Specialist with over 5 years of experience in fashion retail, specializing in B2C sales, website direction, and e-commerce development. Developed strong skills in online store management, brand communication, and visual content creation.
+Explore the projects below to see the campaigns and the visual direction that carries them.

@@ -39,10 +39,12 @@ lint: ## Enforced quality gate: markdownlint + ESLint (JS) + taplo (TOML lint+fo
 check: lint media-check i18n-check build-strict ## Gate: lint + media + translations + strict build (CI entry point)
 
 build: ## Production build into ./public
-	$(HUGO) --gc --minify --baseURL $(BASE_URL)
+	$(HUGO) --gc --minify --cleanDestinationDir --baseURL $(BASE_URL)
+	@python3 scripts/prune-public.py
 
 build-strict: ## Strict build: path + template warnings surfaced
-	$(HUGO) --gc --minify --printPathWarnings --templateMetricsHints --baseURL $(BASE_URL)
+	$(HUGO) --gc --minify --cleanDestinationDir --printPathWarnings --templateMetricsHints --baseURL $(BASE_URL)
+	@python3 scripts/prune-public.py
 	@test -s public/index.html && echo "✔ build OK"
 
 media-check: ## Fail when content/templates reference external media (no hotlinking, self-hosted only)
@@ -52,6 +54,11 @@ media-check: ## Fail when content/templates reference external media (no hotlink
 	if [ -n "$$hits" ]; then \
 	  echo "external media references found (must be self-hosted):"; \
 	  printf '%s\n' "$$hits"; exit 1; \
+	fi; \
+	stray=$$(find content assets -name '*.webp-tmp' 2>/dev/null); \
+	if [ -n "$$stray" ]; then \
+	  echo "stray *.webp-tmp leftovers in bundles (would get published):"; \
+	  printf '%s\n' "$$stray"; exit 1; \
 	fi; \
 	echo "✔ media: all served from this site"
 

@@ -13,3 +13,22 @@ article header#single_header,
 article footer.max-w-prose {
   max-width: none;
 }
+
+/*
+ * Gallery tiles: subtle zoom-in affordance and the same corner radius as the
+ * home-page project cards (rounded-lg). medium-zoom provides the zoom-in
+ * cursor and the lightbox; skip our effects while it is open and while
+ * Packery positions tiles (inline transforms take precedence anyway).
+ */
+
+.gallery img {
+  border-radius: 0.5rem;
+}
+
+.gallery img:not(.medium-zoom-image--opened):hover {
+  transform: scale(1.02);
+}
+
+.gallery img.medium-zoom-image--opened {
+  border-radius: 0;
+}

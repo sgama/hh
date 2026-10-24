@@ -39,6 +39,47 @@ PNG_QUANT = [
     ".png",
 ]
 JPG_OPTIM = ["jpegoptim", "--strip-all", "--max=85", "--quiet"]
+MAX_WIDTH = 1600  # 2x max display width; anything wider gets resized on convert
+
+
+def image_dims(src):
+    """Width/height of a PNG or JPEG byte-wise (no Pillow dependency)."""
+    with open(src, "rb") as f:
+        data = f.read(26)
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+    if data[:2] == b"\xff\xd8":  # JPEG: scan for SOF0..SOF15 (skip DHT/DAC/RST)
+        data = open(src, "rb").read(256 * 1024)
+        i = 2
+        while i < len(data) - 9:
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker = data[i + 1]
+            if marker in (
+                0xC0,
+                0xC1,
+                0xC2,
+                0xC3,
+                0xC5,
+                0xC6,
+                0xC7,
+                0xC9,
+                0xCA,
+                0xCB,
+                0xCD,
+                0xCE,
+                0xCF,
+            ):
+                return (
+                    int.from_bytes(data[i + 9 : i + 11], "big"),
+                    int.from_bytes(data[i + 7 : i + 9], "big"),
+                )
+            if marker in (0xD8, 0x01) or 0xD0 <= marker <= 0xD7:
+                i += 2
+            else:
+                i += 2 + int.from_bytes(data[i + 2 : i + 4], "big")
+    return None, None
 
 
 def sh(cmd, paths):
@@ -64,29 +105,43 @@ def main():
             os.makedirs(os.path.dirname(backup), exist_ok=True)
             shutil.copy2(src, backup)
 
-        # 2) oversize -> WebP (never for files whose name implies transparency needs;
-        #    heuristic: only convert when the result is convincingly smaller)
+        # 2) oversize -> WebP. Strategy: dimension-cap wide images to MAX_WIDTH
+        #    (2x max display size) first, which beats plain re-encoding for
+        #    photographic PNGs; only fall back to the strict ratio-gated plain
+        #    conversion when no ratio requirement.
+        conv_accepted = False
         if size > CONVERT_MIN:
-            tmp = src + ".webp-tmp"
-            if (
-                subprocess.run(
-                    ["cwebp", "-q", str(WEBP_Q), src, "-o", tmp], capture_output=True
-                ).returncode
-                == 0
-            ):
+            attempts = []
+            width, height = image_dims(src)
+            if width and width > MAX_WIDTH:
+                attempts.append(
+                    (
+                        ["cwebp", "-q", str(WEBP_Q), "-resize", str(MAX_WIDTH), "0"],
+                        size * 0.95,
+                    )
+                )
+            attempts.append((["cwebp", "-q", str(WEBP_Q)], size * GUARD))
+            for cmd, gate in attempts:
+                tmp = src + ".webp-tmp"
+                cmd = [*cmd, src, "-o", tmp]
+                if subprocess.run(cmd, capture_output=True).returncode != 0:
+                    continue
                 wsize = os.path.getsize(tmp)
-                if wsize < size * GUARD:
+                if wsize < gate:
                     webp = src.rsplit(".", 1)[0] + ".webp"
                     os.replace(tmp, webp)
                     os.remove(src)
                     rewrite_refs(rel, webp, src)
                     converted += 1
-                    size = wsize
-                    total_after += size
-                    continue
+                    conv_accepted = True
+                    total_after += wsize
+                    break
                 else:
                     os.remove(tmp)
-                    failed += 1
+            if conv_accepted:
+                continue
+            else:
+                failed += 1
 
         # 3) in-place quantize/optimize
         if src.lower().endswith(".png"):
@@ -122,7 +177,9 @@ def rewrite_refs(old_rel, new_rel, src):
     rel_dir = os.path.dirname(old_rel)
     if rel_dir.startswith("content/"):
         # md files live at the bundle root (parent of images/), never inside images/
-        targets += glob.glob(f"{ROOT}/{rel_dir}/*.md") + glob.glob(f"{ROOT}/{rel_dir}/../*.md")
+        targets += glob.glob(f"{ROOT}/{rel_dir}/*.md") + glob.glob(
+            f"{ROOT}/{rel_dir}/../*.md"
+        )
         old_needle, new_needle = (
             name,
             new_name,
@@ -151,7 +208,11 @@ def repair_dangling_refs():
             if os.path.exists(os.path.join(ROOT, os.path.dirname(md), "images", m)):
                 continue
             webp = m.rsplit(".", 1)[0] + ".webp"
-            if os.path.exists(os.path.join(ROOT, os.path.dirname(md), "images", webp.rsplit("/", 1)[1])):
+            if os.path.exists(
+                os.path.join(
+                    ROOT, os.path.dirname(md), "images", webp.rsplit("/", 1)[1]
+                )
+            ):
                 text = text.replace(m, webp)
         if text != orig:
             open(md, "w", encoding="utf-8").write(text)

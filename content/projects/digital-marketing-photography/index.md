@@ -1,5 +1,6 @@
 ---
 title: Digital Marketing Photography
+description: "Coordinated models, studio booking, and styling for digital marketing photography, supporting and directing shoots for promotional and branding content."
 summary: Assisted with model coordination, studio selection, and styling for digital marketing campaigns.
 images:
   - images/01.jpg

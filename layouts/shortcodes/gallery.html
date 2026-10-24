@@ -1,0 +1,48 @@
+{{ $id := delimit (slice "gallery" (partial "functions/uid.html" .)) "-" -}}
+{{ $content := .Inner -}}
+
+{{/* find all img tags */}}
+{{ range findRE `<img\s+[^>]*>` $content -}}
+  {{ $imgTag := . -}}
+  {{/* extract src attribute */}}
+  {{ with findRESubmatch `src=['"]([^'"]+)['"]` $imgTag -}}
+    {{ $srcAttr := index (index . 0) 0 -}}
+    {{ $srcValue := index (index . 0) 1 -}}
+    {{ $srcValueFinal := $srcValue -}}
+
+    {{ if or (hasPrefix $srcValue "http://") (hasPrefix $srcValue "https://") -}}
+      {{ with resources.GetRemote $srcValue -}}{{ $srcValueFinal = .RelPermalink -}}{{ end -}}
+    {{ else -}}
+      {{ with $.Page.Resources.GetMatch $srcValue -}}
+        {{ $srcValueFinal = .RelPermalink -}}
+        {{/* performance pass (project override): serve Hugo-processed WebP
+          tiles with srcset/width/height instead of raw bundle originals
+          (raws are multi-megabyte; processed tiles are ~50-150 KB) */}}
+        {{ $large := .Resize "900x webp q80" -}}
+        {{ $small := .Resize "480x webp q78" -}}
+        {{ $processed := printf `src="%s" srcset="%s 480w, %s 900w" sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 50vw" width="%d" height="%d"` $large.RelPermalink $small.RelPermalink $large.RelPermalink $large.Width $large.Height -}}
+        {{ $content = replace $content $imgTag (replace $imgTag $srcAttr $processed) -}}
+      {{ else -}}
+        {{ with resources.GetMatch $srcValue -}}{{ $srcValueFinal = .RelPermalink -}}{{ end -}}
+      {{ end -}}
+    {{ end -}}
+
+    {{ $newTag := replace $imgTag $srcAttr (printf `src="%s"` $srcValueFinal) -}}
+    {{ $content = replace $content $imgTag $newTag -}}
+  {{ end -}}
+{{ end -}}
+
+{{/* images without alternative text get an explicit empty alt so screen
+  readers skip them instead of announcing the file name */}}
+{{ range findRE `<img\s+[^>]*>` $content -}}
+  {{ $imgTag := . -}}
+  {{ if not (findRE `\salt=` $imgTag) -}}
+    {{ $newTag := replaceRE `^<img\s` `<img alt="" ` $imgTag -}}
+    {{ $content = replace $content $imgTag $newTag -}}
+  {{ end -}}
+{{ end -}}
+
+{{ if not .Parent }}<div class="width-patch"></div>{{ end }}
+<div id="{{- $id -}}" class="gallery">
+  {{ $content | safeHTML -}}
+</div>
