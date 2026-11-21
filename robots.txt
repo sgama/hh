@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sgama.github.io/hh/sitemap.xml
