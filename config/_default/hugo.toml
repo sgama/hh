@@ -4,7 +4,7 @@
 # [module] — after [[module.imports]] TOML would nest them inside the import.
 # https://blowfish.page/docs/getting-started/
 
-baseURL = "http://localhost:1313/" # set to your production URL when deploying
+baseURL = "https://sgama.github.io/hh/"
 
 enableRobotsTXT = true # robots.txt via the theme's layouts/robots.txt
 # English lives at site root ("/"), Japanese at "/ja/" (defaults elsewhere).

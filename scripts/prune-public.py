@@ -11,9 +11,13 @@ non-referenced manifests stay. Run after `hugo` builds public/.
 import glob
 import os
 import re
+import sys
+from urllib.parse import urlsplit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLIC = os.path.join(ROOT, "public")
+# Hugo URLs include the Pages subpath; files under public/ do not.
+BASE_PATH = urlsplit(sys.argv[1]).path.rstrip("/") if len(sys.argv) > 1 else ""
 
 referenced = set()
 for html in glob.glob(f"{PUBLIC}/**/*.html", recursive=True):
@@ -27,7 +31,10 @@ for html in glob.glob(f"{PUBLIC}/**/*.html", recursive=True):
             candidates = [val]
         for u in candidates:
             absurl = re.match(r"https?://[^/]+(/.*)", u)
-            referenced.add(absurl.group(1) if absurl else u)
+            path = absurl.group(1) if absurl else u
+            if BASE_PATH and (path == BASE_PATH or path.startswith(BASE_PATH + "/")):
+                path = path[len(BASE_PATH) :] or "/"
+            referenced.add(path)
 
 pruned = 0
 for p in glob.glob(f"{PUBLIC}/projects/*/images/*"):

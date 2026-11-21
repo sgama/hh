@@ -8,10 +8,11 @@
 HUGO     ?= hugo
 TAPLO    ?= taplo
 THEME    := github.com/nunocoracao/blowfish/v3
-BASE_URL ?= http://localhost:1313/
+BASE_URL ?= https://sgama.github.io/hh/
+DEV_BASE_URL ?= http://localhost:$(PORT)/
 PORT     ?= 1313
 
-.PHONY: help setup tidy update dev build build-strict check lint media-check media-optimize i18n-check images-audit new clean
+.PHONY: help setup tidy update dev build build-strict check test-prune lint media-check media-optimize i18n-check images-audit new clean
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -28,7 +29,7 @@ update: ## Update Blowfish to the latest upstream release
 	$(HUGO) mod get -u $(THEME)
 
 dev: ## Live-reload dev server (http://localhost:$(PORT))
-	$(HUGO) server -p $(PORT) --buildDrafts --baseURL $(BASE_URL)
+	$(HUGO) server -p $(PORT) --buildDrafts --baseURL $(DEV_BASE_URL)
 
 lint: ## Enforced quality gate: markdownlint + ESLint (JS) + taplo (TOML lint+format)
 	@npx --yes markdownlint-cli2 "**/*.md" "!public/**" "!node_modules/**" "!.tools/**"
@@ -38,14 +39,17 @@ lint: ## Enforced quality gate: markdownlint + ESLint (JS) + taplo (TOML lint+fo
 
 check: lint media-check i18n-check build-strict ## Gate: lint + media + translations + strict build (CI entry point)
 
-build: ## Production build into ./public
+build: test-prune ## Production build into ./public
 	$(HUGO) --gc --minify --cleanDestinationDir --baseURL $(BASE_URL)
-	@python3 scripts/prune-public.py
+	@python3 scripts/prune-public.py "$(BASE_URL)"
 
-build-strict: ## Strict build: path + template warnings surfaced
+build-strict: test-prune ## Strict build: path + template warnings surfaced
 	$(HUGO) --gc --minify --cleanDestinationDir --printPathWarnings --templateMetricsHints --baseURL $(BASE_URL)
-	@python3 scripts/prune-public.py
+	@python3 scripts/prune-public.py "$(BASE_URL)"
 	@test -s public/index.html && echo "✔ build OK"
+
+test-prune: ## Regression test for public image pruning
+	@PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_prune_public.py'
 
 media-check: ## Fail when content/templates reference external media (no hotlinking, self-hosted only)
 	@hits=$$(grep -rnE \
