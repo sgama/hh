@@ -11,7 +11,7 @@ THEME    := github.com/nunocoracao/blowfish/v3
 BASE_URL ?= http://localhost:1313/
 PORT     ?= 1313
 
-.PHONY: help setup tidy update dev build build-strict check lint media-check media-optimize i18n-check images-audit clean
+.PHONY: help setup tidy update dev build build-strict check lint media-check media-optimize i18n-check images-audit new clean
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -80,3 +80,6 @@ media-optimize: ## Optimize PNG/JPEG under content/ + assets/: oversize -> WebP 
 
 clean: ## Remove build artifacts
 	rm -rf public resources/_gen .hugo_build.lock
+
+new: ## Create a new draft: make new KIND=post NAME=my-slug
+	$(HUGO) new $(KIND:-=content)/$(NAME).md
